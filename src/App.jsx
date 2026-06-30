@@ -44,7 +44,6 @@ function App() {
                 decoding="async"
                 fetchPriority={page.number === 1 ? 'high' : 'auto'}
               />
-              <span>Pagina {page.number}</span>
             </article>
           ))}
         </div>
