@@ -8,7 +8,7 @@ function App() {
     <main className="app-shell">
       <header className="topbar">
         <a className="brand" href="#menu" aria-label="Ir al menu">
-          <span aria-hidden="true">MM</span>
+          <img src="/brand/icon-96.png" width="42" height="42" alt="" />
           Masaya Mia
         </a>
       </header>
