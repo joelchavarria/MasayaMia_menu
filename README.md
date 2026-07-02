@@ -1,16 +1,42 @@
-# React + Vite
+# Masaya Mia Menu
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Menu digital liviano para Vercel. La web no carga Google Drive en runtime:
+usa imagenes locales optimizadas generadas desde el PDF del menu.
 
-Currently, two official plugins are available:
+## Desarrollo local
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+```bash
+npm install
+npm run dev
+```
 
-## React Compiler
+## Actualizar el menu
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Cuando el negocio actualice el PDF en Google Drive, regenerar las imagenes:
 
-## Expanding the Oxlint configuration
+```bash
+npm run update-menu
+npm run build
+git add .
+git commit -m "Update menu images"
+git push
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+El script descarga el PDF publico actual, convierte todas las paginas a
+imagenes en `public/menu/` y actualiza `src/menuPages.js` con la cantidad real
+de paginas. Si el PDF pasa de 20 a 21 paginas, la app se ajusta sola al correr
+el comando.
+
+Si `npm run update-menu` indica que falta `pdftoppm`, instalar Poppler:
+
+```bash
+brew install poppler
+```
+
+## Produccion
+
+Vercel solo necesita el comando normal:
+
+```bash
+npm run build
+```

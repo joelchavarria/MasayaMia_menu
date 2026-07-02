@@ -1,15 +1,5 @@
 import './App.css'
-
-const menuPages = Array.from({ length: 20 }, (_, index) => {
-  const pageNumber = index + 1
-  const paddedPage = String(pageNumber).padStart(2, '0')
-
-  return {
-    number: pageNumber,
-    src: `/menu/page-${paddedPage}.jpg`,
-    alt: `Pagina ${pageNumber} del menu de Masaya Mia`,
-  }
-})
+import { menuPages } from './menuPages'
 
 function App() {
   const currentYear = new Date().getFullYear()
