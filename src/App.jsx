@@ -11,17 +11,9 @@ function App() {
           <span aria-hidden="true">MM</span>
           Masaya Mia
         </a>
-        <a className="jump-link" href="#menu">
-          Ver menu
-        </a>
       </header>
 
       <section className="menu-viewer" id="menu" aria-label="Menu completo">
-        <div className="viewer-heading">
-          <p>Menu digital</p>
-          <h2>Menu</h2>
-        </div>
-
         <div className="pages">
           {menuPages.map((page) => (
             <article className="menu-page" key={page.src}>
