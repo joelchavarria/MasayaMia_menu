@@ -1,0 +1,41 @@
+name: Update menu images
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-menu:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install Poppler
+        run: sudo apt-get update && sudo apt-get install -y poppler-utils
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Regenerate menu images
+        run: npm run update-menu
+
+      - name: Build check
+        run: npm run build
+
+      - name: Commit menu changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Update menu images
+          file_pattern: public/menu src/menuPages.js

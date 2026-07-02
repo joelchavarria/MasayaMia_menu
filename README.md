@@ -10,7 +10,22 @@ npm install
 npm run dev
 ```
 
-## Actualizar el menu
+## Actualizar el menu automaticamente
+
+El repositorio incluye un GitHub Action que revisa el PDF publico cada 6 horas.
+Si el negocio actualiza el PDF en el mismo enlace de Google Drive, el workflow:
+
+1. Descarga el PDF.
+2. Regenera las imagenes en `public/menu/`.
+3. Actualiza `src/menuPages.js`.
+4. Hace commit automatico si hay cambios.
+5. Vercel despliega el nuevo menu por el push a `main`.
+
+Tambien se puede ejecutar manualmente desde GitHub en:
+
+`Actions > Update menu images > Run workflow`
+
+## Actualizar el menu localmente
 
 Cuando el negocio actualice el PDF en Google Drive, regenerar las imagenes:
 
