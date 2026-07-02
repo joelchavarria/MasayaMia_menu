@@ -12,7 +12,7 @@ npm run dev
 
 ## Actualizar el menu automaticamente
 
-El repositorio incluye un GitHub Action que revisa el PDF publico cada 6 horas.
+El repositorio incluye un GitHub Action que revisa el PDF publico cada 5 minutos.
 Si el negocio actualiza el PDF en el mismo enlace de Google Drive, el workflow:
 
 1. Descarga el PDF.
