@@ -14,6 +14,8 @@ function App() {
       </header>
 
       <section className="menu-viewer" id="menu" aria-label="Menu completo">
+        <div className="menu-title">Menu digital</div>
+
         <div className="pages">
           {menuPages.map((page) => (
             <article className="menu-page" key={page.src}>
