@@ -93,10 +93,5 @@ export const menuPages = [
     "number": 19,
     "src": "/menu/page-19.jpg",
     "alt": "Pagina 19 del menu de Masaya Mia"
-  },
-  {
-    "number": 20,
-    "src": "/menu/page-20.jpg",
-    "alt": "Pagina 20 del menu de Masaya Mia"
   }
 ]
